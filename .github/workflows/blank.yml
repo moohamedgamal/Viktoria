@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Viktoria 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 320px;
+      position: relative; /* الحل هنا */
+    }
+
+    h1 {
+      color: #e60073;
+    }
+
+    .btn {
+      padding: 10px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: red;
+      color: white;
+      border: none;
+      margin-right: 20px;
+    }
+
+    #no {
+      background: white;
+      border: 2px solid black;
+      position: absolute;
+      right: 40px;
+    }
+
+    #result {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <div id="question">
+      <h1>Viktoria,</h1>
+      <p>Will you be my valentine? 💌</p>
+      <button id="yes" onclick="sayYes()">Yes</button>
+      <button id="no">No</button>
+    </div>
+
+    <div id="result">
+      <h1>💖 Yay!!! 💖</h1>
+      <p>Best decision ever 😘</p>
+      <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="200">
+      <h2>I love you ❤️</h2>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const container = document.getElementById("container");
+
+    noBtn.addEventListener("mouseover", () => {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function sayYes() {
+      document.getElementById("question").style.display = "none";
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
